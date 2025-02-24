@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truy Cập Tải Xuống VIP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #111;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: black;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px gold;
+            max-width: 400px;
+            margin: auto;
+            border: 2px solid gold;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #444;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .progress {
+            width: 100%;
+            height: 100%;
+            background: gold;
+            border-radius: 10px;
+            position: relative;
+        }
+        .progress-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: black;
+        }
+        .cta-button {
+            display: block;
+            background: gold;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px gold;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px gold; }
+            50% { box-shadow: 0 0 20px gold; }
+            100% { box-shadow: 0 0 10px gold; }
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .countdown {
+            font-size: 16px;
+            margin-top: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Truy Cập VIP Đã Xác Nhận</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+            <div class="progress-text">100%</div>
+        </div>
+        <p>🎉 Chúc mừng! Tải xuống VIP độc quyền của bạn đã sẵn sàng.</p>
+        <a href="#" class="cta-button" id="cta">⚡ Truy Cập VIP Ngay – Nhấn Vào Đây!</a>
+        <p class="countdown">Số lượng VIP còn lại có hạn: <span id="slots">3</span></p>
+        <p id="userActivity" style="font-size: 14px; color: gray; margin-top: 15px;"></p>
+        <p>Trạng thái: Sẵn sàng</p>
+        <p>Tổng số lượt tải VIP: 35,187</p>
+    </div>
+
+    <script>
+        let slots = 3;
+        function updateSlots() {
+            let newSlots = Math.max(1, Math.floor(Math.random() * 3) + 1);
+            document.getElementById('slots').innerText = newSlots;
+        }
+        setInterval(updateSlots, 3000);
+
+        const actions = [
+            "Nguyễn từ Hồ Chí Minh vừa tải xuống ✅",
+            "Trần từ Hà Nội đã mở khóa truy cập VIP! 🔓",
+            "Phạm từ Đà Nẵng đã hoàn tất tải xuống 🎉",
+            "Lê từ Cần Thơ đã bảo đảm một vị trí VIP! ⏳"
+        ];
+        function updateActivity() {
+            document.getElementById('userActivity').innerText = actions[Math.floor(Math.random() * actions.length)];
+        }
+        setInterval(updateActivity, 4000);
+        updateActivity();
+
+        setInterval(() => {
+            document.querySelector('.cta-button').style.animation = "shake 0.5s";
+            setTimeout(() => {
+                document.querySelector('.cta-button').style.animation = "";
+            }, 500);
+        }, 5000);
+
+        document.querySelector("#cta").addEventListener("click", function(event) {
+            event.preventDefault();
+            this.innerText = "Đang xử lý...";
+            this.style.background = "#999";
+            setTimeout(() => {
+                let bemobParams = new URLSearchParams(window.location.search);
+                let userDevice = bemobParams.get('device') || 'Thiết Bị Của Bạn';
+                let userCarrier = bemobParams.get('carrier') || 'Mạng Di Động';
+                alert(`Đang tối ưu hóa Truy Cập VIP cho ${userDevice} trên ${userCarrier}`);
+                window.location.href = "https://main-offer-lp.com"; 
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
