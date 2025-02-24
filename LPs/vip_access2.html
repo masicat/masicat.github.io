@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truy Cập Tải Xuống VIP</title>
+    <title>VIP Download Access</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,20 +82,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Truy Cập VIP Đã Xác Nhận</h1>
+        <h1>VIP Access Confirmed</h1>
         <div class="progress-bar">
             <div class="progress"></div>
             <div class="progress-text">100%</div>
         </div>
-        <p>🎉 Chúc mừng! Tải xuống VIP độc quyền của bạn đã sẵn sàng.</p>
-        <a href="#" class="cta-button" id="cta">⚡ Truy Cập VIP Ngay – Nhấn Vào Đây!</a>
-        <p class="countdown">Số lượng VIP còn lại có hạn: <span id="slots">3</span></p>
+        <p>🎉 Congratulations! Your exclusive VIP download is ready.</p>
+        <p id="geoOffer">Limited VIP slots left for your city! Hurry!</p>
+        <a href="#" class="cta-button" id="cta">⚡ Instant VIP Access – Click Here!</a>
+        <p class="countdown">Limited VIP slots remaining: <span id="slots">3</span></p>
         <p id="userActivity" style="font-size: 14px; color: gray; margin-top: 15px;"></p>
-        <p>Trạng thái: Sẵn sàng</p>
-        <p>Tổng số lượt tải VIP: 35,187</p>
+        <p>Status: Ready</p>
+        <p>Total VIP downloads: <span id="vipDownloads">35,187</span></p>
     </div>
 
     <script>
+        let bemobParams = new URLSearchParams(window.location.search);
+        let userCity = bemobParams.get('city') || 'your city';
+        let userDevice = bemobParams.get('device') || 'Your Device';
+        let userCarrier = bemobParams.get('isp') || 'Your Network';
+        document.getElementById('geoOffer').innerText = `Limited VIP slots left for ${userCity}! Hurry!`;
+
         let slots = 3;
         function updateSlots() {
             let newSlots = Math.max(1, Math.floor(Math.random() * 3) + 1);
@@ -104,10 +111,10 @@
         setInterval(updateSlots, 3000);
 
         const actions = [
-            "Nguyễn từ Hồ Chí Minh vừa tải xuống ✅",
-            "Trần từ Hà Nội đã mở khóa truy cập VIP! 🔓",
-            "Phạm từ Đà Nẵng đã hoàn tất tải xuống 🎉",
-            "Lê từ Cần Thơ đã bảo đảm một vị trí VIP! ⏳"
+            `${userCity} user just downloaded ✅`,
+            `${userCity} resident unlocked VIP access! 🔓`,
+            `User from ${userCity} completed their download 🎉`,
+            `VIP slot secured in ${userCity}! ⏳`
         ];
         function updateActivity() {
             document.getElementById('userActivity').innerText = actions[Math.floor(Math.random() * actions.length)];
@@ -122,15 +129,19 @@
             }, 500);
         }, 5000);
 
+        let vipDownloads = 35187;
+        function increaseDownloads() {
+            vipDownloads += Math.floor(Math.random() * 3) + 1;
+            document.getElementById('vipDownloads').innerText = vipDownloads.toLocaleString();
+        }
+        setInterval(increaseDownloads, 6000);
+
         document.querySelector("#cta").addEventListener("click", function(event) {
             event.preventDefault();
-            this.innerText = "Đang xử lý...";
+            this.innerText = "Processing...";
             this.style.background = "#999";
             setTimeout(() => {
-                let bemobParams = new URLSearchParams(window.location.search);
-                let userDevice = bemobParams.get('device') || 'Thiết Bị Của Bạn';
-                let userCarrier = bemobParams.get('carrier') || 'Mạng Di Động';
-                alert(`Đang tối ưu hóa Truy Cập VIP cho ${userDevice} trên ${userCarrier}`);
+                alert(`Optimizing VIP Access for ${userDevice} in ${userCity} on ${userCarrier}`);
                 window.location.href = "https://main-offer-lp.com"; 
             }, 3000);
         });
