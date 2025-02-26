@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Mod Unlock</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
         body {
-            font-family: 'Orbitron', sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
-            background: url('https://source.unsplash.com/800x600/?gaming,neon') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #000;
             color: #0f0;
             padding: 20px;
         }
         .container {
-            background: rgba(0, 0, 0, 0.8);
+            background: #111;
             padding: 25px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px #0f0;
@@ -68,20 +66,31 @@
         .cta-button:hover {
             transform: scale(1.05);
         }
-        .live-comments {
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .mod-counter {
+            font-size: 16px;
+            margin-top: 10px;
+            color: red;
+        }
+        .testimonials {
+            margin-top: 20px;
             font-size: 14px;
-            color: gray;
-            margin-top: 15px;
-            height: 50px;
-            overflow: hidden;
+            color: #fff;
             text-align: left;
-            padding-left: 10px;
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Game Mod Unlock</h1>
+        <img src="/Users/aipavlov/Documents/GitHub/masicat.github.io/masicat.github.io/LPs/img/DALL·E 2025-02-25 22.26.37 - A gaming mod UI screenshot for a mobile battle royale game like Free Fire or PUBG Mobile. The interface should display 'Unlimited Coins', 'All Skins U.webp" alt="Game Mod Unlock Banner" style="width:100%; border-radius: 10px;">
         <p>Select your game to unlock premium features:</p>
         <select id="gameSelect">
             <option>Free Fire</option>
@@ -94,8 +103,15 @@
             <div class="progress-text" id="progressText">0%</div>
         </div>
         <p id="geoOffer">Exclusive Mod Unlock for your city! Hurry!</p>
-        <a href="#" class="cta-button" id="cta">🚀 Enable God Mode Now!</a>
-        <p class="live-comments" id="liveComments">User activity loading...</p>
+        <a href="#" class="cta-button" id="cta">⚡ Unlock Game Mod Now!</a>
+        <p class="mod-counter">Active Unlocks: <span id="modUnlocks">5,239</span></p>
+        <div class="testimonials">
+            ⭐️⭐️⭐️⭐️⭐️ "OMG! This mod gave me unlimited coins. Works 100%!"<br>
+            ⭐️⭐️⭐️⭐️⭐️ "Finally unlocked all skins in Free Fire. Best mod ever!"<br>
+            ⭐️⭐️⭐️⭐️☆ "Was skeptical at first, but it actually worked. No ban!"<br>
+            ⭐️⭐️⭐️⭐️⭐️ "Took 10 seconds to install, super easy!"
+        </div>
+        <p id="userActivity" style="font-size: 14px; color: gray; margin-top: 15px;"></p>
         <p>Status: Ready</p>
     </div>
 
@@ -103,21 +119,14 @@
         let bemobParams = new URLSearchParams(window.location.search);
         let userCity = bemobParams.get('city') || 'your city';
         document.getElementById('geoOffer').innerText = `Exclusive Mod Unlock for ${userCity}! Hurry!`;
-        
-        let comments = [
-            `${userCity} user just unlocked Free Fire cheats ✅`,
-            `🔥 Wallhack activated for PUBG Mobile!`,
-            `🚀 Auto Aim installed for Call of Duty!`,
-            `💰 Unlimited Coins added for Mobile Legends!`,
-            `⚡ Anti-Ban Protection enabled!`
-        ];
-        function updateComments() {
-            let commentBox = document.getElementById('liveComments');
-            commentBox.innerText = comments[Math.floor(Math.random() * comments.length)];
+
+        let unlocks = 5239;
+        function updateUnlocks() {
+            unlocks += Math.floor(Math.random() * 3) + 1;
+            document.getElementById('modUnlocks').innerText = unlocks.toLocaleString();
         }
-        setInterval(updateComments, 4000);
-        updateComments();
-        
+        setInterval(updateUnlocks, 6000);
+
         document.getElementById("cta").addEventListener("click", function(event) {
             event.preventDefault();
             this.innerText = "Processing...";
@@ -129,7 +138,7 @@
                 if (progress >= 100) {
                     clearInterval(interval);
                     setTimeout(() => {
-                        window.location.href = "https://main-offer.com";
+                        window.location.href = "https://main-offer-lp.com";
                     }, 1000);
                 } else {
                     progress += Math.floor(Math.random() * 10) + 5;
