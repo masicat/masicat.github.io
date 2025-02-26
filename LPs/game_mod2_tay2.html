@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Mod Unlock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            background-color: #000;
+            color: #0f0;
+            padding: 20px;
+        }
+        .container {
+            background: #111;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #0f0;
+            max-width: 400px;
+            margin: auto;
+            border: 2px solid #0f0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #222;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #0f0;
+            border-radius: 10px;
+            position: absolute;
+        }
+        .progress-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #0f0;
+        }
+        .cta-button {
+            display: block;
+            background: #0f0;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            box-shadow: 0px 0px 10px #0f0;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px #0f0; }
+            50% { box-shadow: 0 0 20px #0f0; }
+            100% { box-shadow: 0 0 10px #0f0; }
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        .mod-counter {
+            font-size: 16px;
+            margin-top: 10px;
+            color: red;
+        }
+        .testimonials {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #fff;
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Mod Unlock</h1>
+        <img src="./img/DALL·E 2025-02-25 22.26.37 - A gaming mod UI screenshot for a mobile battle royale game like Free Fire or PUBG Mobile. The interface should display 'Unlimited Coins', 'All Skins U.webp" alt="Game Mod Unlock Banner" style="width:100%; border-radius: 10px;">
+        <p>Select your game to unlock premium features:</p>
+        <select id="gameSelect">
+            <option>Free Fire</option>
+            <option>Mobile Legends</option>
+            <option>PUBG Mobile</option>
+            <option>Call of Duty Mobile</option>
+        </select>
+        <div class="progress-bar">
+            <div class="progress" id="progressBar"></div>
+            <div class="progress-text" id="progressText">0%</div>
+        </div>
+        <p id="geoOffer">Exclusive Mod Unlock for your city! Hurry!</p>
+        <a href="#" class="cta-button" id="cta">⚡ Unlock Game Mod Now!</a>
+        <p class="mod-counter">Active Unlocks: <span id="modUnlocks">5,239</span></p>
+        <div class="testimonials">
+            ⭐️⭐️⭐️⭐️⭐️ "OMG! This mod gave me unlimited coins. Works 100%!"<br>
+            ⭐️⭐️⭐️⭐️⭐️ "Finally unlocked all skins in Free Fire. Best mod ever!"<br>
+            ⭐️⭐️⭐️⭐️☆ "Was skeptical at first, but it actually worked. No ban!"<br>
+            ⭐️⭐️⭐️⭐️⭐️ "Took 10 seconds to install, super easy!"
+        </div>
+        <p id="userActivity" style="font-size: 14px; color: gray; margin-top: 15px;"></p>
+        <p>Status: Ready</p>
+    </div>
+
+    <script>
+        let bemobParams = new URLSearchParams(window.location.search);
+        let userCity = bemobParams.get('city') || 'your city';
+        document.getElementById('geoOffer').innerText = `Exclusive Mod Unlock for ${userCity}! Hurry!`;
+
+        let unlocks = 5239;
+        function updateUnlocks() {
+            unlocks += Math.floor(Math.random() * 3) + 1;
+            document.getElementById('modUnlocks').innerText = unlocks.toLocaleString();
+        }
+        setInterval(updateUnlocks, 6000);
+
+        document.getElementById("cta").addEventListener("click", function(event) {
+            event.preventDefault();
+            this.innerText = "Processing...";
+            this.style.background = "#999";
+            let progress = 0;
+            let progressBar = document.getElementById("progressBar");
+            let progressText = document.getElementById("progressText");
+            let interval = setInterval(() => {
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        window.location.href = "https://main-offer-lp.com";
+                    }, 1000);
+                } else {
+                    progress += Math.floor(Math.random() * 10) + 5;
+                    if (progress > 100) progress = 100;
+                    progressBar.style.width = progress + "%";
+                    progressText.innerText = progress + "%";
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
