@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Mod Unlock</title>
+    <title>Mở Khóa Mod Game</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
         
@@ -70,13 +68,6 @@
         .cta-button:hover {
             transform: scale(1.05);
         }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
         .mod-counter {
             font-size: 16px;
             margin-top: 10px;
@@ -93,9 +84,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Game Mod Unlock</h1>
-        <img src="./img/pubg.webp" alt="Game Mod Unlock Banner" style="width:100%; border-radius: 10px;">
-        <p>Select your game to unlock premium features:</p>
+        <h1>Mở Khóa Mod Game</h1>
+        <img src="./img/pubg.webp" alt="Mở Khóa Mod Game" style="width:100%; border-radius: 10px;">
+        <p>Chọn game của bạn để mở khóa tính năng cao cấp:</p>
         <select id="gameSelect">
             <option>Free Fire</option>
             <option>Mobile Legends</option>
@@ -106,52 +97,16 @@
             <div class="progress" id="progressBar"></div>
             <div class="progress-text" id="progressText">0%</div>
         </div>
-        <p id="geoOffer">Exclusive Mod Unlock for your city! Hurry!</p>
-        <a href="#" class="cta-button" id="cta">⚡ Unlock Game Mod Now!</a>
-        <p class="mod-counter">Active Unlocks: <span id="modUnlocks">5,239</span></p>
+        <p id="geoOffer">Mở Khóa Mod Độc Quyền cho thành phố của bạn! Nhanh lên!</p>
+        <a href="#" class="cta-button" id="cta">⚡ Mở Khóa Mod Ngay!</a>
+        <p class="mod-counter">Lượt mở khóa đang hoạt động: <span id="modUnlocks">5,239</span></p>
         <div class="testimonials">
-            ⭐️⭐️⭐️⭐️⭐️ "OMG! This mod gave me unlimited coins. Works 100%!"<br>
-            ⭐️⭐️⭐️⭐️⭐️ "Finally unlocked all skins in Free Fire. Best mod ever!"<br>
-            ⭐️⭐️⭐️⭐️☆ "Was skeptical at first, but it actually worked. No ban!"<br>
-            ⭐️⭐️⭐️⭐️⭐️ "Took 10 seconds to install, super easy!"
+            ⭐️⭐️⭐️⭐️⭐️ "OMG! Mod này giúp tôi có tiền vô hạn. Hoạt động 100%!"<br>
+            ⭐️⭐️⭐️⭐️⭐️ "Cuối cùng cũng mở khóa được tất cả skin trong Free Fire. Tuyệt vời!"<br>
+            ⭐️⭐️⭐️⭐️☆ "Ban đầu cũng nghi ngờ, nhưng thật sự hiệu quả. Không bị khóa acc!"<br>
+            ⭐️⭐️⭐️⭐️⭐️ "Chỉ mất 10 giây để cài đặt, siêu dễ dàng!"
         </div>
-        <p id="userActivity" style="font-size: 14px; color: gray; margin-top: 15px;"></p>
-        <p>Status: Ready</p>
+        <p>Status: Sẵn sàng</p>
     </div>
-
-    <script>
-        let bemobParams = new URLSearchParams(window.location.search);
-        let userCity = bemobParams.get('city') || 'your city';
-        document.getElementById('geoOffer').innerText = `Exclusive Mod Unlock for ${userCity}! Hurry!`;
-
-        let unlocks = 5239;
-        function updateUnlocks() {
-            unlocks += Math.floor(Math.random() * 3) + 1;
-            document.getElementById('modUnlocks').innerText = unlocks.toLocaleString();
-        }
-        setInterval(updateUnlocks, 6000);
-
-        document.getElementById("cta").addEventListener("click", function(event) {
-            event.preventDefault();
-            this.innerText = "Processing...";
-            this.style.background = "#999";
-            let progress = 0;
-            let progressBar = document.getElementById("progressBar");
-            let progressText = document.getElementById("progressText");
-            let interval = setInterval(() => {
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        window.location.href = "https://main-offer-lp.com";
-                    }, 1000);
-                } else {
-                    progress += Math.floor(Math.random() * 10) + 5;
-                    if (progress > 100) progress = 100;
-                    progressBar.style.width = progress + "%";
-                    progressText.innerText = progress + "%";
-                }
-            }, 500);
-        });
-    </script>
 </body>
 </html>
