@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        #topics-list {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Your Interests with Topics API</h1>
+    <p>Loading your interests...</p>
+    <div id="topics-list"></div>
+    <div id="error"></div>
+
+    <script>
+        // Function to fetch and display topics
+        async function getUserTopics() {
+            const topicsList = document.getElementById('topics-list');
+            const errorDiv = document.getElementById('error');
+
+            try {
+                // Check if Topics API is available
+                if (!('topics' in navigator)) {
+                    throw new Error('Topics API not supported in this browser.');
+                }
+
+                // Fetch topics
+                const topics = await navigator.topics();
+
+                if (topics.length === 0) {
+                    topicsList.innerHTML = 'No topics available (user may have opted out).';
+                    return;
+                }
+
+                // Display topics
+                let html = '<h2>Your Interests:</h2><ul>';
+                topics.forEach(topic => {
+                    html += `<li>${topic}</li>`;
+                });
+                html += '</ul>';
+                topicsList.innerHTML = html;
+
+                // Optional: Store topics in localStorage for this session
+                localStorage.setItem('userTopics', JSON.stringify(topics));
+                console.log('Topics stored in localStorage:', topics);
+
+            } catch (error) {
+                errorDiv.innerHTML = `Error: ${error.message}`;
+                console.error(error);
+            }
+        }
+
+        // Run when page loads
+        window.onload = getUserTopics;
+    </script>
+</body>
+</html>
