@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thủ Thuật Nhận Tiền Miễn Phí Cash App 💸</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            color: #28a745;
+        }
+        .transaction {
+            background: #d4edda;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+            color: #155724;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background: #218838;
+        }
+        .steps {
+            text-align: left;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function fakeTransactions() {
+            const transactions = [
+                "@NguyenBao123 🎉 vừa nhận được $500!",
+                "@TranDuyPro 🔥 đã nhận $750 trong Cash App!",
+                "@LinhCute99 💰 đã nhận $1.000 – Nó hoạt động!",
+                "@HoangMinh888 🤑 nhận ngay $650!",
+                "@MaiAnhVIP 🎊 vừa rút tiền miễn phí!"
+            ];
+            const transactionBox = document.getElementById("live-feed");
+            setInterval(() => {
+                const newTransaction = document.createElement("div");
+                newTransaction.classList.add("transaction");
+                newTransaction.innerText = transactions[Math.floor(Math.random() * transactions.length)];
+                transactionBox.prepend(newTransaction);
+                if (transactionBox.children.length > 5) {
+                    transactionBox.removeChild(transactionBox.lastChild);
+                }
+            }, 2000);
+        }
+    </script>
+</head>
+<body onload="fakeTransactions()">
+    <div class="container">
+        <h1>Thủ Thuật Nhận Tiền Miễn Phí Cash App 💸</h1>
+        <img src="./img/cash_app_hack.webp" alt="Cash App Balance Hack" width="100%">
+        <p><strong>🔥 Mọi người đang nhận tiền miễn phí từ Cash App với thủ thuật đơn giản này! Làm theo các bước bên dưới. 🔥</strong></p>
+        
+        <div id="live-feed"></div>
+        
+        <div class="steps">
+            <h3>💡 Cách Hoạt Động:</h3>
+            <ol>
+                <li>✅ Nhấp vào nút bên dưới để bắt đầu.</li>
+                <li>📲 Tải xuống ứng dụng Cash App.</li>
+                <li>💵 Chọn số tiền bạn muốn ($500 - $1000).</li>
+                <li>⏳ Chờ quá trình hoàn tất.</li>
+                <li>🎉 Tận hưởng số tiền miễn phí của bạn!</li>
+            </ol>
+        </div>
+        
+        <a href="#" class="button">🚀 Thử Ngay Trước Khi Bị Khóa! 🚀</a>
+    </div>
+</body>
+</html>
