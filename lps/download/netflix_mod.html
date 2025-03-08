@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Unlimited Movies & Shows for FREE!</title>
+    <title>Xem Phim & Chương Trình Truyền Hình Miễn Phí Không Giới Hạn!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,46 +63,53 @@
 </head>
 <body>
     <div class="container">
-        <h1>Watch Unlimited Movies & Shows for FREE!</h1>
-        <p>Unlock Netflix Premium Features – No Ads, No Subscriptions!</p>
-        <p class="trust-badge">✅ No Credit Card Needed | ✅ Secure & Verified</p>
+        <h1>Xem Phim & Chương Trình Truyền Hình Miễn Phí Không Giới Hạn!</h1>
+        <p>Mở khóa Netflix Premium – Không quảng cáo, Không cần đăng ký!</p>
+        <p class="trust-badge">✅ Không cần thẻ tín dụng | ✅ An toàn & Đã xác minh</p>
         
         <div class="premium-content">
-            <img src="./img/netflix_mod.webp" alt="Netflix Premium Content">
+            <img src="./img/netflix_mod.webp" alt="Nội dung Netflix Premium">
         </div>
         
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
-        <p id="status">Verifying download...</p>
-        <button class="cta-button" id="downloadBtn" style="display: none;">Start Watching Now</button>
-        <p class="timer">Exclusive Download – Only Available for <span id="countdown">10:00</span>!</p>
+        <p id="status">Đang xác minh tải xuống...</p>
+        <button class="cta-button" id="downloadBtn" style="display: none;">Bắt đầu xem ngay</button>
+        <p class="timer">Tải xuống độc quyền – Chỉ còn <span id="countdown">10:00</span> phút!</p>
     </div>
     
     <script>
-        let progress = 0;
-        let interval = setInterval(() => {
-            if (progress < 100) {
-                progress += 10;
-                document.getElementById("progress").style.width = progress + "%";
-            } else {
-                clearInterval(interval);
-                document.getElementById("status").innerText = "Download Ready!";
-                document.getElementById("downloadBtn").style.display = "block";
-            }
-        }, 500);
-        
-        let countdown = 600;
-        let countdownInterval = setInterval(() => {
-            countdown--;
-            let minutes = Math.floor(countdown / 60);
-            let seconds = countdown % 60;
-            document.getElementById("countdown").innerText = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
-            if (countdown <= 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("countdown").innerText = "Expired!";
-            }
-        }, 1000);
+        document.addEventListener("DOMContentLoaded", function () {
+            let progress = 0;
+            let progressBar = document.getElementById("progress");
+            let statusText = document.getElementById("status");
+            let downloadBtn = document.getElementById("downloadBtn");
+            
+            let interval = setInterval(() => {
+                if (progress < 100) {
+                    progress += 10;
+                    progressBar.style.width = progress + "%";
+                } else {
+                    clearInterval(interval);
+                    statusText.innerText = "Tải xuống đã sẵn sàng!";
+                    downloadBtn.style.display = "block";
+                }
+            }, 500);
+            
+            let countdown = 600;
+            let countdownText = document.getElementById("countdown");
+            let countdownInterval = setInterval(() => {
+                countdown--;
+                let minutes = Math.floor(countdown / 60);
+                let seconds = countdown % 60;
+                countdownText.innerText = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownText.innerText = "Hết hạn!";
+                }
+            }, 1000);
+        });
     </script>
 </body>
 </html>

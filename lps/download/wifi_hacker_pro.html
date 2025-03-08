@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Hacker APK</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #121212; color: #fff; }
+        .container { max-width: 400px; margin: auto; padding: 20px; background: #1e1e1e; border-radius: 10px; box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2); }
+        .progress-bar { width: 100%; height: 20px; background: #333; border-radius: 10px; margin-top: 20px; overflow: hidden; }
+        .progress { height: 100%; width: 0; background: #00ff00; transition: width 60s linear; }
+        .wifi-list { display: none; margin-top: 20px; }
+        .wifi-item { background: #222; padding: 10px; margin: 5px; border-radius: 5px; display: none; }
+        .cta-button { display: none; margin-top: 20px; padding: 15px; background: #ff0000; color: #fff; font-size: 18px; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>WiFi Hacker Pro</h1>
+        <p>Đang quét các mạng WiFi có sẵn...</p>
+        <div class="progress-bar"><div class="progress" id="progress"></div></div>
+        
+        <div class="wifi-list" id="wifi-list">
+            <div class="wifi-item">🔓 Mạng: VNPT_Home_5G</div>
+            <div class="wifi-item">🔓 Mạng: FPT_Tốc_Độ_Cao</div>
+            <div class="wifi-item">🔓 Mạng: Viettel_Coffee_Free</div>
+            <div class="wifi-item">🔓 Mạng: Sân_Bay_Nội_Bài</div>
+            <div class="wifi-item">🔓 Mạng: Thư_Viện_Quốc_Gia</div>
+            <div class="wifi-item">🔓 Mạng: Văn_Phòng_Công_Ty</div>
+            <button class="cta-button" id="cta-button" onclick="redirectToOffer()">🔓 Truy cập mạng WiFi riêng tư ngay</button>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('progress').style.width = '100%';
+        }, 1000);
+
+        const wifiItems = document.querySelectorAll('.wifi-item');
+        let delay = 10000; // Bắt đầu hiển thị mạng sau 10 giây
+        wifiItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.display = 'block';
+            }, delay + (index * 8000)); // Hiển thị một mạng mỗi 8 giây
+        });
+
+        setTimeout(() => {
+            document.getElementById('wifi-list').style.display = 'block';
+            document.getElementById('cta-button').style.display = 'block';
+        }, 60000); // Hiển thị nút CTA sau 60 giây
+
+        function redirectToOffer() {
+            window.location.href = "YOUR_CPA_OFFER_LINK_HERE";
+        }
+    </script>
+</body>
+</html>
