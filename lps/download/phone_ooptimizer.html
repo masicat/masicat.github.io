@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Booster - Clean & Speed Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: auto;
+        }
+        .progress-bar {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .progress {
+            width: 0%;
+            height: 20px;
+            background: #4CAF50;
+            transition: width 2s;
+        }
+        .status {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border: none;
+            font-size: 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .download-btn:hover {
+            background: #218838;
+        }
+        .product-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Optimizing Your Phone...</h2>
+        <img src="https://via.placeholder.com/400x200?text=AI+Generated+Optimization+Image" alt="Optimization Process" class="product-image">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p class="status" id="status">Scanning for junk files...</p>
+        <button class="download-btn" id="downloadBtn" style="display: none;">Fix Now</button>
+        <p id="productInfo" style="display: none; font-size: 16px; margin-top: 15px;">✅ After Download: Get <strong>Phone Booster Pro</strong> - Free up space & extend battery life!</p>
+    </div>
+
+    <script>
+        let progress = document.getElementById("progress");
+        let statusText = document.getElementById("status");
+        let downloadBtn = document.getElementById("downloadBtn");
+        let productInfo = document.getElementById("productInfo");
+        
+        setTimeout(() => { progress.style.width = "30%"; statusText.innerText = "Detected: 1.5GB Junk Files"; }, 1000);
+        setTimeout(() => { progress.style.width = "60%"; statusText.innerText = "Battery draining apps found!"; }, 2000);
+        setTimeout(() => { progress.style.width = "100%"; statusText.innerText = "Optimization Complete!"; downloadBtn.style.display = "block"; productInfo.style.display = "block"; }, 3000);
+    </script>
+</body>
+</html>
