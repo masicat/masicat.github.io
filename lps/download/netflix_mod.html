@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Unlimited Movies & Shows for FREE!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .progress-bar {
+            width: 80%;
+            background: #333;
+            border-radius: 5px;
+            margin: 20px auto;
+            height: 20px;
+            position: relative;
+        }
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #E50914;
+            border-radius: 5px;
+        }
+        .cta-button {
+            display: block;
+            background: #E50914;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 80%;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: #ff0000;
+        }
+        .timer {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .trust-badge {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 10px;
+        }
+        .premium-content {
+            margin-top: 20px;
+        }
+        .premium-content img {
+            width: 80%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Watch Unlimited Movies & Shows for FREE!</h1>
+        <p>Unlock Netflix Premium Features – No Ads, No Subscriptions!</p>
+        <p class="trust-badge">✅ No Credit Card Needed | ✅ Secure & Verified</p>
+        
+        <div class="premium-content">
+            <img src="./img/netflix_mod.webp" alt="Netflix Premium Content">
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p id="status">Verifying download...</p>
+        <button class="cta-button" id="downloadBtn" style="display: none;">Start Watching Now</button>
+        <p class="timer">Exclusive Download – Only Available for <span id="countdown">10:00</span>!</p>
+    </div>
+    
+    <script>
+        let progress = 0;
+        let interval = setInterval(() => {
+            if (progress < 100) {
+                progress += 10;
+                document.getElementById("progress").style.width = progress + "%";
+            } else {
+                clearInterval(interval);
+                document.getElementById("status").innerText = "Download Ready!";
+                document.getElementById("downloadBtn").style.display = "block";
+            }
+        }, 500);
+        
+        let countdown = 600;
+        let countdownInterval = setInterval(() => {
+            countdown--;
+            let minutes = Math.floor(countdown / 60);
+            let seconds = countdown % 60;
+            document.getElementById("countdown").innerText = `${minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerText = "Expired!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
