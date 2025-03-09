@@ -3,95 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thủ Thuật Nhận Tiền Miễn Phí Cash App 💸</title>
+    <title>Máy Phát Hiện Nói Dối AI</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
             text-align: center;
+            background-color: #000;
+            color: #0f0;
             padding: 20px;
         }
         .container {
-            background: white;
-            padding: 20px;
+            background: #111;
+            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 15px #0f0;
             max-width: 400px;
             margin: auto;
+            border: 2px solid #0f0;
         }
-        h1 {
-            color: #28a745;
-        }
-        .transaction {
-            background: #d4edda;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            font-size: 14px;
-            color: #155724;
-        }
-        .button {
+        .start-button {
             display: block;
-            width: 100%;
-            background: #28a745;
+            background: red;
             color: white;
             padding: 15px;
-            text-align: center;
+            border-radius: 50%;
             text-decoration: none;
-            font-size: 18px;
-            border-radius: 5px;
+            font-size: 20px;
+            margin: 20px auto;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+        }
+        .start-button:hover {
+            background: darkred;
+        }
+        .processing {
+            display: none;
+            font-size: 16px;
+            color: yellow;
             margin-top: 20px;
         }
-        .button:hover {
-            background: #218838;
+        .soundwave {
+            display: none;
+            width: 100px;
+            height: 50px;
+            margin: auto;
+            position: relative;
         }
-        .steps {
-            text-align: left;
-            padding: 10px;
+        .soundwave span {
+            display: inline-block;
+            width: 8px;
+            height: 30px;
+            margin: 0 2px;
+            background: #0f0;
+            animation: wave 1s infinite ease-in-out;
+        }
+        .soundwave span:nth-child(2) { animation-delay: 0.2s; }
+        .soundwave span:nth-child(3) { animation-delay: 0.4s; }
+        .soundwave span:nth-child(4) { animation-delay: 0.6s; }
+        .soundwave span:nth-child(5) { animation-delay: 0.8s; }
+        
+        @keyframes wave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(2); }
+        }
+        .result {
+            display: none;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .cta-button {
+            display: none;
+            background: #0f0;
+            color: black;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        .cta-button:hover {
+            background: #0056b3;
         }
     </style>
-    <script>
-        function fakeTransactions() {
-            const transactions = [
-                "@NguyenBao123 🎉 vừa nhận được $500!",
-                "@TranDuyPro 🔥 đã nhận $750 trong Cash App!",
-                "@LinhCute99 💰 đã nhận $1.000 – Nó hoạt động!",
-                "@HoangMinh888 🤑 nhận ngay $650!",
-                "@MaiAnhVIP 🎊 vừa rút tiền miễn phí!"
-            ];
-            const transactionBox = document.getElementById("live-feed");
-            setInterval(() => {
-                const newTransaction = document.createElement("div");
-                newTransaction.classList.add("transaction");
-                newTransaction.innerText = transactions[Math.floor(Math.random() * transactions.length)];
-                transactionBox.prepend(newTransaction);
-                if (transactionBox.children.length > 5) {
-                    transactionBox.removeChild(transactionBox.lastChild);
-                }
-            }, 2000);
-        }
-    </script>
 </head>
-<body onload="fakeTransactions()">
+<body>
     <div class="container">
-        <h1>Thủ Thuật Nhận Tiền Miễn Phí Cash App 💸</h1>
-        <img src="./img/cash_app_hack.webp" alt="Cash App Balance Hack" width="100%">
-        <p><strong>🔥 Mọi người đang nhận tiền miễn phí từ Cash App với thủ thuật đơn giản này! Làm theo các bước bên dưới. 🔥</strong></p>
+        <h1>🔍 Máy Phát Hiện Nói Dối AI</h1>
+        <p>Nhấn vào nút bên dưới và nói một câu để phân tích độ trung thực.</p>
+        <button class="start-button" id="start">🔴</button>
         
-        <div id="live-feed"></div>
-        
-        <div class="steps">
-            <h3>💡 Cách Hoạt Động:</h3>
-            <ol>
-                <li>✅ Nhấp vào nút bên dưới để bắt đầu.</li>
-                <li>📲 Tải xuống ứng dụng Cash App.</li>
-                <li>💵 Chọn số tiền bạn muốn ($500 - $1000).</li>
-                <li>⏳ Chờ quá trình hoàn tất.</li>
-                <li>🎉 Tận hưởng số tiền miễn phí của bạn!</li>
-            </ol>
+        <div class="processing" id="processing">
+            <p>🎙 Đang ghi âm...</p>
+            <div class="soundwave" id="soundwave">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p>🔍 Phân tích giọng nói, tông giọng và mức độ căng thẳng...</p>
+            <p id="analysis">Đang phát hiện biểu cảm vi mô...</p>
         </div>
         
-        <a href="#" class="button">🚀 Thử Ngay Trước Khi Bị Khóa! 🚀</a>
+        <div class="result" id="result"></div>
+        <button class="cta-button" id="cta">✅ Nhận Báo Cáo Phát Hiện Nói Dối</button>
+        <p id="warning" style="display: none; font-size: 14px; color: red;">⚠ Chỉ còn 2 báo cáo miễn phí hôm nay!</p>
     </div>
+
+    <script>
+        document.getElementById("start").addEventListener("click", function() {
+            this.style.display = "none";
+            document.getElementById("processing").style.display = "block";
+            document.getElementById("soundwave").style.display = "block";
+            
+            let messages = [
+                "Đang phát hiện dao động giọng nói...",
+                "Phân tích kiểu do dự...",
+                "Đo lường độ nhất quán cảm xúc...",
+                "Quét tín hiệu căng thẳng tiềm thức..."
+            ];
+            let analysis = document.getElementById("analysis");
+            let index = 0;
+            let interval = setInterval(() => {
+                if (index < messages.length) {
+                    analysis.innerText = messages[index];
+                    index++;
+                } else {
+                    clearInterval(interval);
+                    showResult();
+                }
+            }, 1500);
+        });
+
+        function showResult() {
+            document.getElementById("processing").style.display = "none";
+            document.getElementById("soundwave").style.display = "none";
+            let result = document.getElementById("result");
+            let randomResult = Math.random() > 0.5 ? "✅ TRUNG THỰC" : "❌ NÓI DỐI";
+            result.innerText = "Kết Quả: " + randomResult;
+            result.style.display = "block";
+            document.getElementById("cta").style.display = "block";
+            document.getElementById("warning").style.display = "block";
+        }
+
+        document.getElementById("cta").addEventListener("click", function(event) {
+            event.preventDefault();
+            this.innerText = "Đang xử lý...";
+            this.style.background = "#999";
+            setTimeout(() => {
+                window.location.href = "https://main-offer-lp.com";
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
