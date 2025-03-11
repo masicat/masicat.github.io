@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA 6 Mobile Beta - Early Access</title>
+    <title>GTA 6 Mobile Beta - Truy Cập Sớm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,24 +61,24 @@
 </head>
 <body>
     <div class="container">
-        <h2>🔥 GTA 6 Mobile Beta - Limited Access 🔥</h2>
-        <p>Early Access Available: <span style="color:#ffcc00; font-weight:bold;">Only 5 Spots Left!</span></p>
+        <h2>🔥 GTA 6 Mobile Beta - Truy Cập Hạn Chế 🔥</h2>
+        <p>Truy cập sớm có sẵn: <span style="color:#ffcc00; font-weight:bold;">Chỉ còn 5 suất!</span></p>
         
-        <img src="https://masicat.github.io/lps/download/img/Game_beta.webp" alt="GTA 6 Homeless Trevor" class="game-image">
+        <img src="./img/Game_beta.webp" alt="GTA 6 Homeless Trevor" class="game-image">
         
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
         
-        <p class="status">Verifying your device...</p>
+        <p class="status">Đang xác minh thiết bị của bạn...</p>
         
-        <a href="#" class="cta-button" id="cta">Join Beta Now</a>
+        <a href="#" class="cta-button" id="cta">Tham Gia Beta Ngay</a>
         
-        <p class="countdown" id="countdown">Offer expires in 09:59</p>
+        <p class="countdown" id="countdown">Ưu đãi hết hạn sau 09:59</p>
     </div>
 
     <script>
-        // Fake Progress Animation
+        // Hiệu ứng tiến trình giả lập
         let progress = 0;
         let progressBar = document.getElementById("progress");
         let statusText = document.querySelector(".status");
@@ -91,24 +91,24 @@
                     progressBar.style.width = progress + "%";
                 } else {
                     clearInterval(interval);
-                    statusText.innerHTML = "✅ Device Verified! Download Ready.";
+                    statusText.innerHTML = "✅ Thiết bị đã được xác minh! Sẵn sàng tải xuống.";
                     ctaButton.href = "https://your-affiliate-link.com";
                 }
             }, 500);
         }
         startProgress();
 
-        // Countdown Timer
+        // Bộ đếm thời gian
         let timeLeft = 599;
         let countdownEl = document.getElementById("countdown");
         function updateCountdown() {
             let minutes = Math.floor(timeLeft / 60);
             let seconds = timeLeft % 60;
-            countdownEl.innerHTML = `Offer expires in ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+            countdownEl.innerHTML = `Ưu đãi hết hạn sau ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
             timeLeft--;
             if (timeLeft < 0) {
                 clearInterval(countdown);
-                countdownEl.innerHTML = "Offer expired!";
+                countdownEl.innerHTML = "Ưu đãi đã hết hạn!";
             }
         }
         let countdown = setInterval(updateCountdown, 1000);
