@@ -78,6 +78,14 @@
         setTimeout(() => { progress.style.width = "30%"; statusText.innerText = "Phát hiện: 1.5GB tập tin rác"; }, 1000);
         setTimeout(() => { progress.style.width = "60%"; statusText.innerText = "Ứng dụng gây hao pin được tìm thấy!"; }, 2000);
         setTimeout(() => { progress.style.width = "100%"; statusText.innerText = "Tối ưu hóa hoàn tất!"; downloadBtn.style.display = "block"; productInfo.style.display = "block"; }, 3000);
+        
+        downloadBtn.addEventListener("click", function() {
+            this.innerText = "Đang xử lý...";
+            this.disabled = true;
+            setTimeout(() => {
+                window.location.href = "https://9k8f9.bemobtrcks.com/click";
+            }, 1500);
+        });
     </script>
 </body>
 </html>

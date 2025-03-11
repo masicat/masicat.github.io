@@ -57,6 +57,23 @@
             width: 100%;
             margin-top: 15px;
         }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #eee;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: #ff9800;
+        }
+        .status {
+            font-size: 14px;
+            margin-top: 10px;
+        }
     </style>
     <script>
         function startCountdown() {
@@ -74,7 +91,29 @@
             }
             updateCountdown();
         }
-        window.onload = startCountdown;
+
+        function startProgress() {
+            let progress = 0;
+            let progressBar = document.getElementById("progress");
+            let statusText = document.querySelector(".status");
+            let ctaButton = document.getElementById("cta");
+
+            let interval = setInterval(() => {
+                if (progress < 100) {
+                    progress += 5;
+                    progressBar.style.width = progress + "%";
+                } else {
+                    clearInterval(interval);
+                    statusText.innerHTML = "✅ Thiết bị đã được xác minh! Sẵn sàng mở khóa.";
+                    ctaButton.href = "https://9k8f9.bemobtrcks.com/click";
+                }
+            }, 500);
+        }
+        
+        window.onload = function() {
+            startCountdown();
+            startProgress();
+        }
     </script>
 </head>
 <body>
@@ -90,7 +129,11 @@
                 <li>Đổi vị trí sang bất kỳ đâu</li>
             </ul>
         </div>
-        <button class="cta-button" onclick="alert('Đang xác minh thiết bị của bạn...')">Mở Khóa Tinder Gold Ngay</button>
+        <a href="#" class="cta-button" id="cta">Mở Khóa Tinder Gold Ngay</a>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p class="status">Đang xác minh thiết bị của bạn...</p>
     </div>
 </body>
 </html>
